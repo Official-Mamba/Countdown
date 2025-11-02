@@ -1,255 +1,312 @@
+<!DOCTYPE html>
+<html>
 
-
-    <html> 
-        <head> 
-           <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title></title>
   
-         <title>Timing By Mamba</title> 
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto+Mono:wght@400;700&display=swap">
-        <style type="text/css" id="dcoder_stylesheet">
-  :root{--accent:#6b6bff}
-        html,body{height:100%}
-        /* Use a pseudo-element to render an animated RGB-moving background.
-           The effect combines a large multi-stop gradient, slow panning, and
-           a hue-rotate filter to produce smooth RGB motion. Content sits above
-           the layer via z-index and positioning. */
-        body{
-          font-family: 'Sofia', sans-serif;
-          margin:0;padding:0;
-          min-height:100vh;
-          display:flex;align-items:center;justify-content:center;
-          position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;
-        }
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+  
+    <style>
 
-        body::before{
-          content:"";
-          position:fixed;inset:0;z-index:0;pointer-events:none;
-          background: conic-gradient(from 90deg at 50% 50%, #ff6b6b, #ffd36b, #6bffd3, #6b6bff, #ff6b6b);
-          background-size: 200% 200%;
-          filter: saturate(1.05) blur(22px) contrast(1.02);
-          transform-origin:50% 50%;
-          animation: panAround 14s linear infinite, hueShift 16s ease-in-out infinite;
-          opacity:0.95;
-        }
+  
+    </style>
 
-        /* Keep page content above the background layer */
-        #countdown, .here, #muteBtn, .twinkles, .heart { position: relative; z-index: 2 }
+ 
+</head>
 
-        @keyframes panAround{
-          0%{background-position:0% 50%; transform: translateZ(0) scale(1)}
-          50%{background-position:100% 50%; transform: translateZ(0) scale(1.05)}
-          100%{background-position:0% 50%; transform: translateZ(0) scale(1)}
-        }
-        @keyframes hueShift{
-          0%{filter: hue-rotate(0deg) saturate(1) blur(22px)}
-          50%{filter: hue-rotate(90deg) saturate(1.05) blur(20px)}
-          100%{filter: hue-rotate(0deg) saturate(1) blur(22px)}
-        }
+<body>
+  
+    <style type="text/css" media="all">
+ 
+  
 
-        /* center card */
-        #countdown{font-weight:800;text-align:center;width:100%;max-width:1000px;margin:12px;padding:28px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));box-shadow:0 8px 32px rgba(0,0,0,0.25)}
-  h1{font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif;color:#110404d1;margin:0 0 8px;font-size:clamp(20px,4vw,40px)}
+        .g1 {
+      display: flex;
 
-  table{display:none}
-  .cards{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:stretch;margin-top:18px}
-  .card{flex:1 1 160px;min-width:120px;max-width:220px;background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));border-radius:14px;padding:18px;box-shadow:none;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .18s ease}
-  .card:focus-within,.card:hover{transform:translateY(-4px)}
-  .num{font-family:'Roboto Mono',monospace;font-weight:700;font-size:clamp(26px,6vw,52px);color:#111;margin-bottom:6px;letter-spacing:0.6px}
-  .label{font-family:'Montserrat',sans-serif;font-size:13px;color:#666;letter-spacing:0.4px}
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+    }
+    .best {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      position: fixed; 
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.95);
+    }
+    .cir {
+     width: 20vw;
+  height: 20vw;
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid rgb(73,174,60);
+      animation: 5s first linear infinite;
+    }
+    .cir1 {
+      animation-delay: 0.5s;
+      border-color: #00f;
+    }
+    .cir2 {
+      animation-delay: 1s;
+      border-color: #57f5f2;
+    }
+    .cir3 {
+      animation-delay: 1.5s;
+      border-color: #73838b;
+    }
+    .cir4 {
+      animation-delay: 2s;
+      border-color: #0043ff;
+    }
+    .cir5 {
+      animation-delay: 2.5s;
+      border-color: #ff0027;
+    }
+    .cir6 {
+      animation-delay: 3s;
+      border-color: #3bff00;
+    }
+    .go {
+      
+  width: 3vw;
+  height: 3vw;
+      position: relative;
+      border-radius: 9px;
+      animation: 6s going linear infinite;
+    }
+    .go1 {
+      background-color: #3bff00;
+    }
+    .go2 {
+      background-color: #0043ff;
+      animation-delay: 1s;
+    }
+    .go3 {
+      background-color: #ff0027;
+      animation-delay: 2s;
+    }
+    .go4 {
+      background-color: #73838b;
+      animation-delay: 3s;
+    }
+    .ld::before {
+      content: "Loading";
+      top: 100px;
+      color: #fff;
+      font-family: Times New Roman;
+      font-size: 5vw;
+      font-weight: 850px;
+      position: relative;
+      text-transform: uppercase;
+      animation: s ld linear infinite;
+    }
+@keyframes ld {
+      0% {
+        content: "loading";
+      }
+      25% {
+        content: "loading.";
+      }
+      50% {
+        content: "loading..";
+      }
+      75% {
+        content: "loading...";
+      }
+    }
+@keyframes going {
+      0% {
+        top: 0;
+      }
+      9% {
+        top: -50px;
+        height: 40px;
+        transform: rotate(0deg);
+      }
+      15% {
+        transform: rotate(360deg);
+      }
+      24% {
+        top: -50px;
+        height: 40px;
+      }
+      30% {
+        top: 0;
+        height: 18px;
+        transform: rotate(360deg);
+      }
+    }
+@keyframes first {
+      50% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) scale(0.3);
+      }
+    }
+   </style> 
 
-  h2{margin:0;font-size:clamp(18px,4vw,48px);text-align:center}
-  .here{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background-color:rgba(0,0,0,0.35);padding:10px 18px;border-radius:999px;color:#fff;box-shadow:none;z-index:9999;cursor:pointer;transition:transform .18s ease}
-  .here::before{content:"";position:absolute;inset:0;border-radius:999px;box-shadow:none;opacity:0;transform:scale(0.9);transition:opacity .25s ease,transform .25s ease;pointer-events:none}
-  .here:hover{transform:translateX(-50%) scale(1.03)}
-  .here:active{transform:translateX(-50%) scale(0.98)}
-  .here:focus-visible{outline:2px solid rgba(255,255,255,0.18);outline-offset:4px}
-  .here.glow-on::before{opacity:1;transform:scale(1)}
-
-  @media (prefers-reduced-motion: reduce){
-    .here,.here::before{transition:none;animation:none}
-  }
-
-        .heart{position:fixed;width:3px;height:3px;color:white;font-family:cursive;font-size:2rem;transform:translateY(0);text-shadow:0 0 8px #fff;animation:fall 5s linear forwards;pointer-events:none;user-select:none;z-index:2}
-        @keyframes fall{from{transform:translateX(0) translateY(0);opacity:1}to{transform:translateX(-100vw) translateY(100vh);opacity:0}}
-
-        a{font-size:16px;background-color:transparent;padding:8px 12px;border-radius:8px;font-weight:700;text-decoration:none;color:var(--accent)}
-        i{color:red;width:205px}
-
-        @media (max-width:520px){
-          #countdown{padding:18px;border-radius:12px;margin:12px}
-          td{padding:14px;font-size:clamp(14px,7vw,24px)}
-          .here{bottom:12px;padding:10px 14px;font-size:14px}
-        }
-
-        </style></head> 
-        <body> 
 
 
-         <div id="countdown" aria-live="polite"> 
-          <h1>Birthday Countdown</h1> 
-          <div class="cards" role="group" aria-label="Time remaining">
-            <div class="card"><div class="num" id="days">0</div><div class="label">Days</div></div>
-            <div class="card"><div class="num" id="hours">00</div><div class="label">Hours</div></div>
-            <div class="card"><div class="num" id="minutes">00</div><div class="label">Minutes</div></div>
-            <div class="card"><div class="num" id="seconds">00</div><div class="label">Seconds</div></div>
-          </div>
-         </div>
-         
-         
-         <div class="here" role="button" tabindex="0" aria-pressed="false" aria-label="Play music and highlight">
+
+  
+ <div id="preloader"> 
+   <div class="best"> 
+    <div class="g1"> 
+    <div class="cir1 cir"></div> 
+    <div class="cir2 cir"></div> 
+    <div class="cir3 cir"></div> 
+    <div class="cir5 cir"></div> 
+    <div class="cir6 cir"></div> 
+    <div class="go1 go"></div> 
+    <div class="go2 go"></div> 
+    <div class="go3 go"></div> 
+    <div class="go4 go"></div> 
+    </div> 
+    <div class="g2"> 
+     <div class="ld"></div> 
+    </div> 
+   </div>  
+  </div> 
 
 
-<h2>Tap Anywhere</h2>
 
-         
-         </div>
 
-         <!-- UI: mute button and twinkles overlay -->
-         <button id="muteBtn" aria-label="Mute music" style="position:fixed;right:14px;top:14px;z-index:9999;padding:8px;border-radius:8px;border:none;background:rgba(0,0,0,0.3);color:#fff;cursor:pointer">🔈</button>
-         <div class="twinkles" aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1"></div>
-        
-       
-  <script type="text/javascript" id="dcoder_script">var eventDate=new Date("nov 04, 2025, 00:00:00").getTime();
-       
-           // Creating an interval function 
-       
-           var x= setInterval(function(){
-          // get the current time
-       
-          var now= new Date().getTime();
-       
-          // The remaining time 
-       
-          var remain= eventDate-now;
-       
-          var s=Math.floor(remain/(1000));
-          var m=Math.floor(remain/(1000*60));
-          var h=Math.floor(remain/(1000*60*60));
-          var d=Math.floor(remain/(1000*60*60*24));
-       
-       
-          h %=24;
-          m %=60;
-          s %=60;
-       
-          h=(h<10)?"0"+h:h;
-          m=(m<10)?"0"+m:m;
-          s=(s<10)?"0"+s:s;
-       
-          document.getElementById('days').textContent=d;
-          document.getElementById('hours').textContent=h;
-          document.getElementById('minutes').textContent=m;
-          document.getElementById('seconds').textContent=s;
-       
-           },1000);
-        </script>
-        
-        
-        
-         <script>
-        
-       function createHeart() {
-         const heart = document.createElement("div");
-         heart.classList.add("heart");
-         heart.style.top = Math.random() * window.innerHeight + 'px';
-         heart.style.left = Math.random() * window.innerWidth + 'px';
-         
-         
-         heart.innerText = ".";
-         
-         
-         heart.style.animationDuration = (Math.random() * 7 + 5) + 's';
-         document.body.appendChild(heart);
-         setTimeout(() => {
-           heart.remove();
-         }, 6000); // 6 seconds
-       }
-       
-       setInterval(createHeart,100);
+
+
+
+ <div class="marquee"> 
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&amp;effect=fire"> 
+   <h2 class="font-effect-fire"> 
+    <marquee behavior="alternate">
+        🎂Today is ur day🎂
+    </marquee> </h2>
+    
+
+
+<div id="battery-level">
+ </div>
+
+
+
+<div id="transbox"> 
+<div class="dpimg">
+ <div class="text1">
+
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&amp;effect=fire"> 
+  
+ <h1  class="font-effect-fire" style="color:black;">
+   Happy Birthday 
+   
+   </h1> 
+ 
+  </div>
+ </div>
+</div>
+
+
+
+<div id="transbox2">
+ <!----
+  <div class="bdypic">
+    </div>
+  -->
+
+    <div class="overlap-cards-container">
+        <div class="overlap-card card1"></div>
+        <div class="overlap-card card2"></div>
+        <div class="overlap-card card3"></div>
+    </div>
+
+
+
+    </div>
+    
+    <!--"the transparent container is trans3"-- 
+        "inside longtext is  2nd transparent container"--
+        "container text is ltext"-->
+        <div id="trans3">
+       <div class="longtext">
+     <h2 class="ltext">
+
+        🎉Wishing You A Day Filled With..🎂🖤🫶🏻  <br>
+        <span></span>
+        <div class="music-wave">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+     </h2>
+  </div>
+</div>
+  </div> 
+  
+  
+
+
+<div class="words">
+            <span class="word" style="text-shadow:
+
+     0 0 5px #000000, 
+     0 0 5px #000000, 
+     0 0 5px #000000, 
+     0 0 2px #000000, 
+     0 0 2px #000000, 
+     0 0 4px #000000, 
+     0 0 4px #000000; ">Created By</span>
+            <span class="word" style="color: #02fbffec;">M a m b a</span>
            
-         </script>
-
-        <script>
-          // Twinkle generator
-          (function(){
-            const container = document.querySelector('.twinkles');
-            function spawn(){
-              const s = document.createElement('div');
-              const size = Math.random()*3 + 1; // px
-              s.style.width = s.style.height = size + 'px';
-              s.style.position = 'absolute';
-              s.style.left = Math.random()*100 + '%';
-              s.style.top = Math.random()*100 + '%';
-              s.style.background = 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.2) 40%, transparent 70%)';
-              s.style.borderRadius = '50%';
-              s.style.opacity = 0;
-              s.style.transform = 'scale(0.2)';
-              s.style.filter = 'blur(1px)';
-              s.style.pointerEvents = 'none';
-              container.appendChild(s);
-              const t = (Math.random()*3000)+2000;
-              requestAnimationFrame(()=>{ s.style.transition = `opacity ${t/1000}s ease, transform ${t/1000}s ease`; s.style.opacity = 1; s.style.transform='scale(1)'; });
-              setTimeout(()=>{ s.style.opacity = 0; s.style.transform='scale(0.2)'; setTimeout(()=>s.remove(), 800); }, t);
-            }
-            // spawn periodically but not too many
-            setInterval(()=>{ for(let i=0;i<3;i++) spawn(); }, 900);
-          })();
-
-          // Mute button
-          (function(){
-            const btn = document.getElementById('muteBtn');
-            const audio = document.getElementById('song');
-            function update(){ btn.textContent = audio.muted ? '🔇' : '🔊'; }
-            btn.addEventListener('click', ()=>{ audio.muted = !audio.muted; update(); });
-            audio.addEventListener('volumechange', update);
-            update();
-          })();
-
-          // Celebration when countdown reaches zero
-          (function(){
-            const audio = document.getElementById('song');
-            function celebrate(){
-              // simple emoji confetti
-              for(let i=0;i<36;i++){
-                const e = document.createElement('div');
-                e.textContent = ['🎉','✨','🎈','💥'][Math.floor(Math.random()*4)];
-                e.style.position='fixed';
-                e.style.left = Math.random()*100 + '%';
-                e.style.top = Math.random()*40 + '%';
-                e.style.fontSize = (12+Math.random()*28)+'px';
-                e.style.pointerEvents='none';
-                e.style.opacity='0';
-                e.style.transform='translateY(-20px)';
-                e.style.transition='all .9s cubic-bezier(.2,.8,.2,1)';
-                document.body.appendChild(e);
-                requestAnimationFrame(()=>{ e.style.opacity='1'; e.style.transform = `translateY(${200+Math.random()*120}px) rotate(${Math.random()*720-360}deg)` });
-                setTimeout(()=>e.remove(),1200);
-              }
-              // ensure audio plays
-              audio.play().catch(()=>{});
-            }
-            // hook into existing interval to watch for <=0
-            const orig = window.setInterval;
-            // instead, add a watcher every 900ms
-            setInterval(()=>{
-              const days = parseInt(document.getElementById('days').textContent||0,10);
-              const hrs = parseInt(document.getElementById('hours').textContent||0,10);
-              const mins = parseInt(document.getElementById('minutes').textContent||0,10);
-              const secs = parseInt(document.getElementById('seconds').textContent||0,10);
-              if(days<=0 && hrs<=0 && mins<=0 && secs<=0){ celebrate(); }
-            }, 900);
-          })();
-        </script>
-           
+        </div>
+    </div>
+        
 
 
 
 
 
 
+ 
+<!----
+   <div class="mamba">
+    Created By Mamba
+   </div>
+  -->
+
+
+
+
+    
+
+ 
+   
+   <script>
+    
+    var loader = document.getElementById("preloader");
+    window.addEventListener("load",function(){
+      loader.style.display="none";
+    
+    
+     })
+  
+    </script>
+    
+     
 
 <audio id="song" src="https://www.dropbox.com/scl/fi/y5ntlvn3chqz3noqlm6oo/Joyful_-_Chess_Rat_Dance_.mp3?rlkey=eyfnsybz0i9mwsjdgtexd0g7x&e=1&st=oe18mmrb&dl=1" autoplay style="display:none;"></audio>
 
@@ -258,7 +315,11 @@
     const audio = document.getElementById("song");
     audio.play().catch(err => console.log("Audio play error:", err));
 
-   
+    navigator.vibrate([50, 200, 50, 200, 50, 200, 50, 200, 100, 300, 100, 300, 100, 300, 100, 300]);
+
+    setInterval(() => {
+      navigator.vibrate([50, 200, 50, 200, 50, 200, 50, 200, 100, 300, 100, 300, 100, 300, 100, 300]);
+    }, 2000);
   }
 
   // Mobile touch support
@@ -267,30 +328,108 @@
   // Laptop click support
   document.body.addEventListener('click', startEffects);
 </script>
-     
-                     
-
-
-        
-
-<!-- 
-
-<script>
-
-
-  alert("Click On Sreen");
-
-
-</script> -->
-
-
-        
-        
-        </body></html>
+         
 
 
 
+ <script>
+ 
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.top = Math.random() * window.innerHeight + 'px';
+  heart.style.left = Math.random() * window.innerWidth + 'px';
+  
+  
+  heart.innerText = ".";
+  
+ 
+  heart.style.animationDuration = (Math.random() * 7 + 5) + 's';
+  document.body.appendChild(heart);
+  setTimeout(() => {
+    heart.remove();
+  }, 6000); // 6 seconds
+}
 
+setInterval(createHeart,500);
+    
+  </script>
+    
+      
+ <script>
+  
+  navigator.getBattery().then(battery => {
+    const batteryLevel = document.getElementById('battery-level');
+    batteryLevel.innerText = ` 𓈆↯${battery.level * 100}%`;
+    
+    // Battery level ko update karein
+    battery.addEventListener('levelchange', () => {
+      batteryLevel.innerText = `𓈆↯ ${battery.level * 100}%`;
+    });
+  });
+</script>
 
+  <script>
+    // Music ke audio file ko load karein
+    const audioFile = 'https://www.dropbox.com/scl/fi/y5ntlvn3chqz3noqlm6oo/Joyful_-_Chess_Rat_Dance_.mp3?rlkey=eyfnsybz0i9mwsjdgtexd0g7x&e=1&st=oe18mmrb&dl=';
+    const audio = new Audio(audioFile);
+    const audioContext = new AudioContext();
+    const source = audioContext.createMediaElementSource(audio);
+    source.connect(audioContext.destination);
+    const analyser = audioContext.createAnalyser();
+    source.connect(analyser);
+    analyser.fftSize = 256;
+    const frequencyData = new Uint8Array(analyser.frequencyBinCount);
 
+    // Amplitude aur frequency ke basis par vibration pattern generate karein
+    function generateVibrationPattern() {
+      analyser.getByteFrequencyData(frequencyData);
+      const amplitude = Math.max(...frequencyData);
+      const frequency = frequencyData.indexOf(amplitude);
+      const vibrationPattern = [];
 
+      for (let i = 0; i < frequencyData.length; i++) {
+        const frequencyValue = frequencyData[i];
+        const amplitudeValue = amplitude;
+
+        if (amplitudeValue > 50 && frequencyValue > 100) {
+          vibrationPattern.push(500); // Vibrate for 500ms
+        } else {
+          vibrationPattern.push(0); // Don't vibrate
+        }
+      }
+
+      return vibrationPattern;
+    }
+
+    // Vibration pattern ko phone ke vibration motor par send karein
+    function vibrate() {
+      const vibrationPattern = generateVibrationPattern();
+      navigator.vibrate(vibrationPattern);
+    }
+
+    // Screen par click event listener
+    document.body.addEventListener('click', function() {
+      // Vibration code
+      navigator.vibrate(100);
+      
+      // Audio play karein
+      audio.play().catch(error => {
+        console.log('Error playing audio:', error);
+      });
+      
+      setInterval(vibrate, 100);
+    });
+
+    // Error handling
+    window.onerror = function(error) {
+      console.log('Error:', error);
+    };
+  </script>
+  
+  
+  
+ 
+</body>
+
+</html>
